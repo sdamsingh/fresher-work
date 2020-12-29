@@ -1,4 +1,5 @@
 {% extends 'accounts/base.html' %}
+{% load static %}
 {% block content%}
 <div class="row">
     <div class = "col-sm-4">
@@ -31,10 +32,12 @@
                        <td>{{st.email}}</td>
                        <td>{{st.password}}</td> 
                        <td>
-                           <a href ="{% url 'updatedata' st.id %}" class="btn btn-warning btn-sm">Edit</a>
+                           <a href ="{% url 'updatedata' st.id %}" class="btn btn-warning btn-sm"><img src="{% static 'accounts/images/edit.png' %}" 
+                            class="img-thumbnail img-responsive" style="width: 30px; height:30px"></a>
                            <form action="{% url 'deletedata' st.id%}" method="post" class="d-inline">
                                {% csrf_token %}
-                               <input type="submit" class = "btn btn-danger" value="Delete">
+                              <button type="submit" class="btn btn-danger"> <img src="{% static 'accounts/images/delete.png'%}"class="img-thumbnail"
+                                style="width:30px;height:30px;" ></button>
                            </form>
                        </td>
                     </tr> 
